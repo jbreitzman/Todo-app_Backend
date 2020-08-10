@@ -1,4 +1,4 @@
-package io.breitek.SpringDemoApp.rest.basic.auth;
+package io.breitek.SpringDemoApp;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

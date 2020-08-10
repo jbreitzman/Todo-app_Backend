@@ -1,4 +1,4 @@
-package io.breitek.SpringDemoApp.rest.basic.auth;
+package io.breitek.SpringDemoApp;
 
 public class AuthenticationBean {
 	private String message;

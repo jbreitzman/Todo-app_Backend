@@ -1,4 +1,4 @@
-package io.breitek.SpringDemoApp;
+package io.breitek.SpringDemoApp.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
