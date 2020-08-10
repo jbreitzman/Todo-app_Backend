@@ -57,7 +57,7 @@ public class TodoResourceController {
 		Todo createdTodo = todoService.save(todo);
 		
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-			.path("/{id").buildAndExpand(createdTodo.getId()).toUri();
+			.path("/{id}").buildAndExpand(createdTodo.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();
 	}
