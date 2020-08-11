@@ -40,6 +40,7 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
         logger.debug("Authentication Request For '{}'", request.getRequestURL());
 
         final String requestTokenHeader = request.getHeader(this.tokenHeader);
+        
 
         String username = null;
         String jwtToken = null;
@@ -53,7 +54,9 @@ public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFil
                 logger.warn("JWT_TOKEN_EXPIRED", e);
             }
         } else {
-            logger.warn("JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING");
+        	if (!request.getRequestURL().toString().contains("/h2-console")) {
+        		logger.warn("JWT_TOKEN_DOES_NOT_START_WITH_BEARER_STRING");
+        	}
         }
 
         logger.debug("JWT_TOKEN_USERNAME_VALUE '{}'", username);
