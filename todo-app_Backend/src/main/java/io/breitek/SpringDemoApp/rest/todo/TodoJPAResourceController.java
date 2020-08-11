@@ -50,8 +50,8 @@ public class TodoJPAResourceController {
 	@PutMapping("/jpa/users/{username}/todos/{id}")
 	public ResponseEntity<Todo> updateTodo(@PathVariable String username, @PathVariable long id, @RequestBody Todo todo) {
 		
-		Todo todoUpdated = todoJpaRepository.save(todo);
 		todo.setUsername(username);
+		Todo todoUpdated = todoJpaRepository.save(todo);
 		
 		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
 	}
@@ -59,8 +59,9 @@ public class TodoJPAResourceController {
 	@PostMapping("/jpa/users/{username}/todos")
 	public ResponseEntity<Void> createTodo(@PathVariable String username, @RequestBody Todo todo) {
 		
-		Todo createdTodo = todoJpaRepository.save(todo);
 		todo.setUsername(username);
+		Todo createdTodo = todoJpaRepository.save(todo);
+
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 			.path("/{id}").buildAndExpand(createdTodo.getId()).toUri();
 		
